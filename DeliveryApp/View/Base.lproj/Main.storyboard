@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mAE-91-BpT">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Hdy-1X-Cp8">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="mAE-91-BpT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Eqi-kJ-QMe">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="ed9-0O-RkP" kind="relationship" relationship="viewControllers" id="LQb-zu-w27"/>
+                        <segue destination="qUU-Yk-OLF" kind="relationship" relationship="viewControllers" id="aot-m4-eZw"/>
+                        <segue destination="gFd-6u-bNI" kind="relationship" relationship="viewControllers" id="t4l-rl-wBM"/>
+                        <segue destination="QrX-9E-wg7" kind="relationship" relationship="viewControllers" id="I2O-Ot-k7t"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="twe-mm-1Hv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2283" y="-6"/>
+        </scene>
+        <!--Food-->
+        <scene sceneID="6Bg-oM-BYW">
+            <objects>
+                <viewController id="28r-05-Wcb" customClass="MarketVC" customModule="DeliveryApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fzG-a5-cqX">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="3YK-Kn-JbO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Food" id="y2J-RE-J4q">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="menuIcon" id="c3a-zk-W6S">
+                            <connections>
+                                <action selector="didTapMenu" destination="28r-05-Wcb" id="CiX-OT-fGw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EoB-gz-2Ox" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1429" y="732"/>
+        </scene>
+        <!--Корзина-->
+        <scene sceneID="cch-7D-8fh">
+            <objects>
+                <viewController id="qUU-Yk-OLF" customClass="BasketVC" customModule="DeliveryApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gfq-x5-dHG">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Second VC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bo1-Qc-Lpl">
+                                <rect key="frame" x="165" y="412" width="85" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XCD-zl-eCr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Корзина" image="deliveryBasket" selectedImage="deliveryBasket" id="Eyu-zI-zRb"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4zg-EL-bw0" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2538.4615384615386" y="731.51658767772506"/>
+        </scene>
+        <!--Замовлення-->
+        <scene sceneID="W7V-wN-9YD">
+            <objects>
+                <viewController id="gFd-6u-bNI" customClass="DeliveryVC" customModule="DeliveryApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bBk-GP-lyb">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Third VC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9s-sT-bcV">
+                                <rect key="frame" x="165" y="412" width="67" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aJG-NU-y8t"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Замовлення" image="deliveryPackage" landscapeImage="deliveryPackage" largeContentSizeImage="deliveryPackage" selectedImage="deliveryPackage" id="76r-Ih-IqO"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pOB-cz-etG" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3347.6923076923076" y="731.51658767772506"/>
+        </scene>
+        <!--Налаштування-->
+        <scene sceneID="Zcu-eH-e1p">
+            <objects>
+                <viewController id="QrX-9E-wg7" customClass="SettingsVC" customModule="DeliveryApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="c2W-ar-bO2">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="l5k-Sb-7Rd">
+                                <rect key="frame" x="0.0" y="47" width="390" height="665"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="gk0-WC-7S7">
+                                        <rect key="frame" x="0.0" y="50" width="390" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gk0-WC-7S7" id="Zan-OQ-4lR">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="QMw-5n-Q41"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="l5k-Sb-7Rd" firstAttribute="leading" secondItem="QMw-5n-Q41" secondAttribute="leading" id="9HS-Ie-7lT"/>
+                            <constraint firstItem="l5k-Sb-7Rd" firstAttribute="top" secondItem="QMw-5n-Q41" secondAttribute="top" id="Co8-Af-hcW"/>
+                            <constraint firstItem="QMw-5n-Q41" firstAttribute="bottom" secondItem="l5k-Sb-7Rd" secondAttribute="bottom" id="Tmb-0E-TZo"/>
+                            <constraint firstItem="QMw-5n-Q41" firstAttribute="trailing" secondItem="l5k-Sb-7Rd" secondAttribute="trailing" id="o4I-R3-D5o"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Налаштування" image="deliverySettings" landscapeImage="deliverySettings" largeContentSizeImage="deliverySettings" selectedImage="deliverySettings" id="6PX-Aa-aY3"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d6V-qv-4pf" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4152.3076923076924" y="731.51658767772506"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="snI-Sr-i2d">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ed9-0O-RkP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="deliveryMarket" id="xMo-BI-KUc"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rpZ-gA-nAq">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="28r-05-Wcb" kind="relationship" relationship="rootViewController" id="D0T-ph-t4i"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E7Y-tZ-ZfN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="494" y="732"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="deliveryBasket" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="deliveryMarket" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="deliveryPackage" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="deliverySettings" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="menuIcon" width="32" height="32"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
