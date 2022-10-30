@@ -11,7 +11,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("File path: ",FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
     }
 
 

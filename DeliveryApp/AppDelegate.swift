@@ -16,14 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SideMenuNavigationControl
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-      
-
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-
-       
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        self.saveContext()
     }
     
     //MARK: - Work with CoreData
@@ -39,13 +39,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, SideMenuNavigationControl
         return container
     }()
     
+    
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()
             } catch {
-
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }

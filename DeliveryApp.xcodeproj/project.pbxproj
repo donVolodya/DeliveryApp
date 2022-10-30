@@ -19,6 +19,7 @@
 		676844D228E8A708007C5A01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 676844D128E8A708007C5A01 /* Assets.xcassets */; };
 		676844D528E8A708007C5A01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 676844D328E8A708007C5A01 /* LaunchScreen.storyboard */; };
 		67CFEAB02906AD76006C97EE /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 67CFEAAE2906AD76006C97EE /* DataModel.xcdatamodeld */; };
+		67CFEAB22908199F006C97EE /* ProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CFEAB12908199F006C97EE /* ProductsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		676844D428E8A708007C5A01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		676844D628E8A708007C5A01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67CFEAAF2906AD76006C97EE /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		67CFEAB12908199F006C97EE /* ProductsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsVC.swift; sourceTree = "<group>"; };
 		881A8258D4926CFB16007D1E /* Pods-DeliveryApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DeliveryApp.release.xcconfig"; path = "Target Support Files/Pods-DeliveryApp/Pods-DeliveryApp.release.xcconfig"; sourceTree = "<group>"; };
 		938C0A120C1B514D3FB467DD /* Pods_DeliveryApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DeliveryApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -68,6 +70,7 @@
 				6752772F28EDBC8E005A3D90 /* DeliveryVC.swift */,
 				6752773128EDBCAB005A3D90 /* BasketVC.swift */,
 				6752773328EDBCBD005A3D90 /* SettingsVC.swift */,
+				67CFEAB12908199F006C97EE /* ProductsVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				6752773228EDBCAB005A3D90 /* BasketVC.swift in Sources */,
 				676844CB28E8A706007C5A01 /* SceneDelegate.swift in Sources */,
 				6752773428EDBCBD005A3D90 /* SettingsVC.swift in Sources */,
+				67CFEAB22908199F006C97EE /* ProductsVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
