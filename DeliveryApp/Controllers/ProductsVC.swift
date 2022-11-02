@@ -6,6 +6,7 @@ class ProductsVC: UITableViewController {
     var productArray = [Product]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    
     var selectedCategory : MenuList?{
         didSet{
             // Відбудеться як тільки в обраній категорії зʼявиться якесь значення
