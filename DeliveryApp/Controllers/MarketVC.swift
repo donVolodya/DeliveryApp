@@ -9,12 +9,21 @@ import UIKit
 import SideMenu
 import CoreData
 
-class MarketVC: UIViewController, MenuListDelegate, UINavigationBarDelegate {
+class MarketVC: UIViewController, MenuListDelegate, UITableViewDelegate {
+    
+   
+    
     
     func menuItemSelected(name: CategoryData) {
         menu?.dismiss(animated: true, completion: {
-    
+            
         })
+       let selectionVC = storyboard?.instantiateViewController(withIdentifier: "ProductsVC") as! ProductsVC
+        navigationController?.pushViewController(selectionVC, animated: true)
+        
+        //print(name.categoryName!)
+        
+       
     }
     
     var menu : SideMenuNavigationController?
@@ -22,7 +31,7 @@ class MarketVC: UIViewController, MenuListDelegate, UINavigationBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         menu = SideMenuNavigationController(rootViewController: menuList)
         menu?.leftSide = true
         menu?.setNavigationBarHidden(true, animated: false)
@@ -31,7 +40,6 @@ class MarketVC: UIViewController, MenuListDelegate, UINavigationBarDelegate {
         SideMenuManager.default.leftMenuNavigationController = menu
         SideMenuManager.default.addPanGestureToPresent(toView: self.view)
         
-        addChildController()
     }
     
     @IBAction func didTapMenu()
@@ -39,14 +47,16 @@ class MarketVC: UIViewController, MenuListDelegate, UINavigationBarDelegate {
         present(menu!, animated: true)
     }
     
-    private func addChildController()
-    {
-        addChild(ProductsVC())
-        view.addSubview(ProductsVC().view)
-        
-        ProductsVC().view.frame = view.bounds
-        ProductsVC().didMove(toParent: self)
-    }
+//    private func addChildController()
+//    {
+//        addChild(ProductsVC())
+//        view.addSubview(ProductsVC().view)
+//
+//        ProductsVC().view.frame = view.bounds
+//        ProductsVC().didMove(toParent: self)
+//    }
+    
+   
     
 
 }

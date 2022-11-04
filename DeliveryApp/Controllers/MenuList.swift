@@ -39,7 +39,7 @@ class MenuList : UITableViewController, UINavigationBarDelegate
         override func viewDidLoad() {
             super.viewDidLoad()
             loadCategories()
-
+            //print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
             tableView.register(UITableViewCell.self, forCellReuseIdentifier: "marketCell")
             tableView.rowHeight = 70
         }
