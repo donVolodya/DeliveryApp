@@ -4,10 +4,13 @@ import CoreData
 class ProductsVC: UITableViewController {
 
     var productArray = [Product]()
+    var prod = ["hey","it's","products"]
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let menuList = MenuList(with: [CategoryData]())
     
     
-    var selectedCategory : MenuList?{
+    
+    var selectedCategory : CategoryData?{
         didSet{
             // Відбудеться як тільки в обраній категорії зʼявиться якесь значення
             loadProducts()
@@ -28,9 +31,9 @@ class ProductsVC: UITableViewController {
 
    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "productCell",for: indexPath)
-        let product = productArray[indexPath.row]
+       let product = productArray[indexPath.row]
        
-        cell.textLabel?.text = product.productName
+       cell.textLabel?.text = product.productName
 
         return cell
     }
@@ -43,8 +46,16 @@ class ProductsVC: UITableViewController {
     
     //MARK: - Work with Core Data
     
-    func loadProducts(with request: NSFetchRequest<Product> = Product.fetchRequest())
+    func loadProducts(with request: NSFetchRequest<Product> = Product.fetchRequest(), predicate: NSPredicate? = nil)
     {
+        let categoryPredicate = NSPredicate(format: "categories.categoryName MATCHES %@", selectedCategory!.categoryName!)
+        
+        if let addtionalPredicate = predicate {
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, addtionalPredicate])
+        } else {
+            request.predicate = categoryPredicate
+        }
+        
         do {
             productArray = try context.fetch(request)
         } catch {

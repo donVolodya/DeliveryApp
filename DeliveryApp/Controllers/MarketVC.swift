@@ -16,18 +16,14 @@ class MarketVC: UIViewController, MenuListDelegate, UITableViewDelegate {
     
     func menuItemSelected(name: CategoryData) {
         menu?.dismiss(animated: true, completion: {
-            
         })
-       let selectionVC = storyboard?.instantiateViewController(withIdentifier: "ProductsVC") as! ProductsVC
-        navigationController?.pushViewController(selectionVC, animated: true)
-        
-        //print(name.categoryName!)
-        
-       
+        let selectionVC = self.storyboard?.instantiateViewController(withIdentifier: "ProductsVC") as! ProductsVC
+        self.navigationController?.pushViewController(selectionVC, animated: true)
     }
     
     var menu : SideMenuNavigationController?
     let menuList = MenuList(with: [CategoryData].init())
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,17 +42,6 @@ class MarketVC: UIViewController, MenuListDelegate, UITableViewDelegate {
     {
         present(menu!, animated: true)
     }
-    
-//    private func addChildController()
-//    {
-//        addChild(ProductsVC())
-//        view.addSubview(ProductsVC().view)
-//
-//        ProductsVC().view.frame = view.bounds
-//        ProductsVC().didMove(toParent: self)
-//    }
-    
-   
     
 
 }

@@ -27,9 +27,6 @@ class MenuList : UITableViewController, UINavigationBarDelegate
         init(with foodArray: [CategoryData]){
             self.foodArray = foodArray
             super.init(nibName: nil, bundle: nil)
-//            loadCategories()
-//            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "marketCell")
-//            tableView.rowHeight = 70
         }
         
         required init?(coder: NSCoder) {
@@ -73,16 +70,17 @@ class MenuList : UITableViewController, UINavigationBarDelegate
             tableView.deselectRow(at: indexPath, animated: true)
             let selectedCategory = foodArray[indexPath.row]
             delegate?.menuItemSelected(name: selectedCategory)
-            //performSegue(withIdentifier: "goToProducts", sender: self)
         }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! ProductsVC
         
-//        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//            let destinationVC = segue.destination as! ProductsVC
-//            if let indexPath = tableView.indexPathForSelectedRow
-//            {
-//                destinationVC.selectedCategory = foodArray[indexPath.row]  as? MenuList
-//            }
-//        }
+        if let indexPath = tableView.indexPathForSelectedRow {
+        destinationVC.selectedCategory = foodArray[indexPath.row]
+        }
+    }
+        
+
         
         
         
