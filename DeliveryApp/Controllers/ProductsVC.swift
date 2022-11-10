@@ -1,10 +1,10 @@
 import UIKit
 import CoreData
+import SideMenu
 
 class ProductsVC: UITableViewController {
 
     var productArray = [Product]()
-    var prod = ["hey","it's","products"]
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let menuList = MenuList(with: [CategoryData]())
     
@@ -17,15 +17,15 @@ class ProductsVC: UITableViewController {
         }
     }
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadProducts()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "productCell")
     }
 
 
   override  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return productArray.count
+      return productArray.count
     }
 
 
@@ -34,6 +34,7 @@ class ProductsVC: UITableViewController {
        let product = productArray[indexPath.row]
        
        cell.textLabel?.text = product.productName
+       
 
         return cell
     }
@@ -48,20 +49,20 @@ class ProductsVC: UITableViewController {
     
     func loadProducts(with request: NSFetchRequest<Product> = Product.fetchRequest(), predicate: NSPredicate? = nil)
     {
-        let categoryPredicate = NSPredicate(format: "categories.categoryName MATCHES %@", selectedCategory!.categoryName!)
-        
-        if let addtionalPredicate = predicate {
-            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, addtionalPredicate])
-        } else {
-            request.predicate = categoryPredicate
-        }
+//        let categoryPredicate = NSPredicate(format: "categories.categoryName MATCHES %@", selectedCategory!.categoryName!)
+//
+//        if let addtionalPredicate = predicate {
+//            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, addtionalPredicate])
+//        } else {
+//            request.predicate = categoryPredicate
+//        }
         
         do {
             productArray = try context.fetch(request)
         } catch {
             print("Error fetching data from context \(error)")
         }
-        
+
         tableView.reloadData()
     }
 

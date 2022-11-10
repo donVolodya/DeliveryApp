@@ -16,9 +16,10 @@ class MarketVC: UIViewController, MenuListDelegate, UITableViewDelegate {
     
     func menuItemSelected(name: CategoryData) {
         menu?.dismiss(animated: true, completion: {
-        })
         let selectionVC = self.storyboard?.instantiateViewController(withIdentifier: "ProductsVC") as! ProductsVC
         self.navigationController?.pushViewController(selectionVC, animated: true)
+        })
+//        performSegue(withIdentifier: "goToProducts", sender: self)
     }
     
     var menu : SideMenuNavigationController?
