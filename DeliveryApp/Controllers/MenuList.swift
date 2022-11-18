@@ -24,15 +24,16 @@ class MenuList : UITableViewController, UINavigationBarDelegate
         var foodArray = [CategoryData]()
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
+        
         init(with foodArray: [CategoryData]){
             self.foodArray = foodArray
             super.init(nibName: nil, bundle: nil)
         }
-        
         required init?(coder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
         
+    
         override func viewDidLoad() {
             super.viewDidLoad()
             loadCategories()
@@ -71,17 +72,6 @@ class MenuList : UITableViewController, UINavigationBarDelegate
             let selectedCategory = foodArray[indexPath.row]
             delegate?.menuItemSelected(name: selectedCategory)
         }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! ProductsVC
-        
-        if let indexPath = tableView.indexPathForSelectedRow {
-        destinationVC.selectedCategory = foodArray[indexPath.row]
-        }
-    }
-        
-
-        
         
         
         
