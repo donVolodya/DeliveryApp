@@ -11,13 +11,12 @@ import CoreData
 
 class MarketVC: UIViewController, MenuListDelegate, UITableViewDelegate {
     
-   
-    
-    
     func menuItemSelected(name: CategoryData) {
         menu?.dismiss(animated: true, completion: {
         let selectionVC = self.storyboard?.instantiateViewController(withIdentifier: "ProductsVC") as! ProductsVC
+            
         selectionVC.selectedCategory = name
+            
         self.navigationController?.pushViewController(selectionVC, animated: true)
         })
     }
@@ -32,6 +31,7 @@ class MarketVC: UIViewController, MenuListDelegate, UITableViewDelegate {
         menu = SideMenuNavigationController(rootViewController: menuList)
         menu?.leftSide = true
         menu?.setNavigationBarHidden(true, animated: false)
+        
         menuList.delegate = self
         
         SideMenuManager.default.leftMenuNavigationController = menu

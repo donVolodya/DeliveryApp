@@ -20,10 +20,12 @@ class ProductsVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadProducts()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "productCell")
+        
+        //tableView.register(UITableViewCell.self, forCellReuseIdentifier: "productCell")
     }
 
-
+//MARK: - TableView methods
+    
   override  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return productArray.count
     }
@@ -68,4 +70,32 @@ class ProductsVC: UITableViewController {
 
 
 
+}
+
+
+//MARK: - SearchBar methods
+
+extension ProductsVC : UISearchBarDelegate
+{
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+
+        let request : NSFetchRequest<Product> = Product.fetchRequest()
+    
+        let predicate = NSPredicate(format: "productName CONTAINS[cd] %@", searchBar.text!)
+        
+        request.sortDescriptors = [NSSortDescriptor(key: "productName", ascending: true)]
+        loadProducts(with: request, predicate: predicate)
+
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0
+        {
+            loadProducts()
+            
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+        }
+    }
 }

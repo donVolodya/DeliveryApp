@@ -37,7 +37,7 @@ class MenuList : UITableViewController, UINavigationBarDelegate
         override func viewDidLoad() {
             super.viewDidLoad()
             loadCategories()
-            //print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+            print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
             tableView.register(UITableViewCell.self, forCellReuseIdentifier: "marketCell")
             tableView.rowHeight = 70
         }
@@ -49,20 +49,18 @@ class MenuList : UITableViewController, UINavigationBarDelegate
         
         
        override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "marketCell",for: indexPath)
-            let category = foodArray[indexPath.row]
+           let cell = tableView.dequeueReusableCell(withIdentifier: "marketCell",for: indexPath)
+           let category = foodArray[indexPath.row]
            
-            cell.textLabel?.text = category.categoryName
+           cell.textLabel?.text = category.categoryName
            
-            if let data = category.value(forKeyPath: "categoryLogo") as? Data
-            {
-                cell.imageView?.image = UIImage(data: data)
-            }else
-           {
+           if let data = category.value(forKeyPath: "categoryLogo") as? Data{
+               cell.imageView?.image = UIImage(data: data)
+            }
+           else{
                cell.imageView?.image = UIImage(named: "fish.png")
            }
-           
-            
+         
             return cell
         }
         
