@@ -2,12 +2,24 @@ import UIKit
 import CoreData
 import SideMenu
 
+
+
+
+//MARK: - Cell components
+
+class ProductCell: UITableViewCell {
+    @IBOutlet weak var productImage: UIImageView!
+    
+    @IBOutlet weak var productName: UILabel!
+    
+    @IBOutlet weak var productPrice: UILabel!
+}
+
 class ProductsVC: UITableViewController {
 
     var productArray = [Product]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let menuList = MenuList(with: [CategoryData]())
-    
     
     
     var selectedCategory : CategoryData?{
@@ -20,8 +32,8 @@ class ProductsVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadProducts()
+        title = selectedCategory?.categoryName
         
-        //tableView.register(UITableViewCell.self, forCellReuseIdentifier: "productCell")
     }
 
 //MARK: - TableView methods
@@ -32,18 +44,42 @@ class ProductsVC: UITableViewController {
 
 
    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "productCell",for: indexPath)
-       let product = productArray[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "productCell",for: indexPath) as! ProductCell
+        let product = productArray[indexPath.row]
        
-       cell.textLabel?.text = product.productName
-       
-
+       cell.productName.text = product.productName
+       cell.productPrice.text = product.productPrice
+        
+       DispatchQueue.main.async {
+           if let data = product.value(forKeyPath: "productImage") as? Data {
+               cell.productImage.image = UIImage(data: data)
+                   }
+                  else{
+                      cell.productImage.image = UIImage(named: "fruit.png")
+                  }
+       }
         return cell
     }
 
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
         tableView.deselectRow(at: indexPath, animated: true)
+        let product = productArray[indexPath.row]
+        let vc = storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController
+        
+        vc?.image = UIImage(named: "fruit.png")!
+        vc?.price = product.productPrice!
+        vc?.name = product.productName!
+        
+        present(vc!, animated: true)
+
+    }
+    
+    
+    //MARK: - Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
     }
     
     

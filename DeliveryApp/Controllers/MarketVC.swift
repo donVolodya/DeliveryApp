@@ -33,7 +33,7 @@ class MarketVC: UIViewController, MenuListDelegate, UITableViewDelegate {
         menu?.setNavigationBarHidden(true, animated: false)
         
         menuList.delegate = self
-        
+                
         SideMenuManager.default.leftMenuNavigationController = menu
         SideMenuManager.default.addPanGestureToPresent(toView: self.view)
         
