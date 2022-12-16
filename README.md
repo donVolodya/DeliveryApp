@@ -6,7 +6,7 @@
 
 ## App working process
 
-![appGif](https://user-images.githubusercontent.com/96892718/208172700-25b33d36-cb6c-4114-91c8-b08e0102bfed.gif)
+<img src = "https://user-images.githubusercontent.com/96892718/208172700-25b33d36-cb6c-4114-91c8-b08e0102bfed.gif" align = "center" height = "900rm">
 
 ## Built With
 
