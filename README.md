@@ -4,9 +4,6 @@
 
 <img src = "https://user-images.githubusercontent.com/96892718/208172021-3b160797-655a-4237-805c-1dbebfd06b9a.png" height="500rm">  <img src ="https://user-images.githubusercontent.com/96892718/208172109-61347e09-7d84-4017-81f6-bb9351241716.png" height="500rm">  <img src ="https://user-images.githubusercontent.com/96892718/208172182-b40c7a1a-33ef-4bbb-b0a9-ae949e54951f.png" height="500rm"> <img src = "https://user-images.githubusercontent.com/96892718/208172295-6112f555-70b2-4bbd-9653-6f1e86a4ac42.png" height = "500rm">
 
-## App working process
-
-<img src = "https://user-images.githubusercontent.com/96892718/208172700-25b33d36-cb6c-4114-91c8-b08e0102bfed.gif" align = "center" height = "900rm">
 
 ## Built With
 
